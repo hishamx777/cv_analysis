@@ -138,9 +138,9 @@ flowchart TD
 
 ## 📧 Contact
 
-Created by **\[Your Name]**
+Created by **\[Hisham Mislhy]**
 
 * GitHub: [hishamx777](https://github.com/hisamx777)
-* Email: [h.mislhy.ai@gmail.com](malito:h.mislhy.ai@gmail.com)
+* Email: [h.mislhy.ai@gmail.com](mailto:h.mislhy.ai@gmail.com)
 
 ---
