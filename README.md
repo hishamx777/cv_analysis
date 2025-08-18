@@ -116,7 +116,7 @@ The system is powered by **RAG (Retrieval-Augmented Generation)**:
 
 ## 🔄 RAG Flow (Diagram)
 
-```mermaid
+```
 flowchart TD
     A[Upload CVs (PDF/ZIP)] --> B[Chunk & Embed using GoogleGenerativeAIEmbeddings]
     B --> C[Store embeddings in FAISS vector DB]
