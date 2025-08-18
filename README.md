@@ -141,6 +141,6 @@ flowchart TD
 Created by **\[Your Name]**
 
 * GitHub: [hishamx777](https://github.com/hisamx777)
-* Email: [h.mislhy.ai@gmail.com](Gmail:h.mislhy.ai@gmail.com)
+* Email: [h.mislhy.ai@gmail.com](malito:h.mislhy.ai@gmail.com)
 
 ---
