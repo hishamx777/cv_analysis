@@ -12,7 +12,7 @@ import uvicorn
 
 load_dotenv()
 
-app = FastAPI(title="AI Course Assistant (Gemini + FAISS)")
+app = FastAPI(title="AI CV Analysis (Gemini + FAISS)")
 
 app.add_middleware(
     CORSMiddleware,
@@ -59,11 +59,9 @@ async def update_params(k: Optional[int] = Form(None), temperature: Optional[flo
     return {"updated": updated}
 
 @app.post("/upload")
-async def upload_file(file: UploadFile = File(...)):
-
-    dest = DATA_DIR / file.filename
-    with open(dest, "wb") as f:
-        f.write(await file.read())
+async with aiofiles.open(dest, 'wb') as out_file:
+    content = await file.read()
+    await out_file.write(content)
 
     summary = rag.add_file(str(dest))
     return {"message": "File(s) ingested.", **summary}
@@ -78,4 +76,4 @@ async def ask(payload: AskPayload):
 
 
 if __name__ == "__main__":
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
