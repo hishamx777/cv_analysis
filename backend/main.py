@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from rag_pipeline import RAGPipeline
 
 import uvicorn 
+import aiofiles
 
 load_dotenv()
 
@@ -59,9 +60,12 @@ async def update_params(k: Optional[int] = Form(None), temperature: Optional[flo
     return {"updated": updated}
 
 @app.post("/upload")
-async with aiofiles.open(dest, 'wb') as out_file:
-    content = await file.read()
-    await out_file.write(content)
+async def upload_file(file: UploadFile = File(...)):
+    dest = DATA_DIR / file.filename
+    
+    async with aiofiles.open(dest, 'wb') as out_file:
+        content = await file.read()
+        await out_file.write(content)
 
     summary = rag.add_file(str(dest))
     return {"message": "File(s) ingested.", **summary}
