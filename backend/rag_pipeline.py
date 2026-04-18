@@ -56,7 +56,7 @@ class RAGPipeline:
         retriever = self.db.as_retriever(search_kwargs={"k": self.k})
 
         template = (
-            "You are an **AI Course Assistant**. Answer the user's question using only the provided context.\n"
+            "You are an **AI CV Analyzer**. Answer the user's question using only the provided context.\n"
             "If the answer cannot be found in the context, say you don't know.\n\n"
             "Context:\n{context}\n\n"
             "Question: {question}\n\n"
@@ -164,7 +164,7 @@ class RAGPipeline:
     def ask(self, question: str) -> Dict[str, Any]:
         if self.qa_chain is None:
             return {
-                "answer": "No documents available. Please upload lecture notes first.",
+                "answer": "No documents available. Please upload resumes first.",
                 "sources": []
             }
         res = self.qa_chain({"query": question})
